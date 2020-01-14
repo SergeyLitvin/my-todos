@@ -1,0 +1,33 @@
+/* You can add global styles to this file, and also import other style files */
+
+// BASE STYLES
+
+@import url('https://fonts.googleapis.com/css?family=Montserrat:300,400,800&display=swap&subset=cyrillic');
+
+$base-color: #354F9A;
+$yellow: #E9CA41;
+$gray: #717171;
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+
+h1, .h1, h2, .h2, h3, .h3 {
+  font-family: 'Montserrat', sans-serif;
+  color: $base-color;
+  text-align: center;
+}
+
+h1, .h1 {
+   font-size: 40px;
+ }
+
+h2, .h3 {
+  font-size: 32px;
+}
+
+h3, .h3 {
+  font-size: 24px;
+}
