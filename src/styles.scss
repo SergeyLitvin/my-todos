@@ -7,6 +7,14 @@
 $base-color: #354F9A;
 $yellow: #E9CA41;
 $gray: #717171;
+$black: #000000;
+$white: #ffffff;
+
+html, body {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 16px;
+  line-height: 150%;
+}
 
 .container {
   max-width: 600px;
@@ -18,6 +26,7 @@ h1, .h1, h2, .h2, h3, .h3 {
   font-family: 'Montserrat', sans-serif;
   color: $base-color;
   text-align: center;
+  font-weight: 800;
 }
 
 h1, .h1 {
@@ -30,4 +39,12 @@ h2, .h3 {
 
 h3, .h3 {
   font-size: 24px;
+}
+
+ul {
+  list-style: none;
+}
+
+strong {
+  color: $black;
 }

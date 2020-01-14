@@ -1,1 +1,6 @@
-<p>todos works!</p>
+<ul>
+  <li *ngFor="let todo of todos; let i = index">
+    <strong>{{i + 1}}</strong>
+    {{todo.title}}
+  </li>
+</ul>
