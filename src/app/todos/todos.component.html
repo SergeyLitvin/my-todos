@@ -1,6 +1,13 @@
 <ul>
   <li *ngFor="let todo of todos; let i = index">
-    <strong>{{i + 1}}.</strong>
-    {{todo.title}}
+    <span [class.done]="todo.completed">
+      <input type="checkbox" [checked]="todo.completed">
+      <strong>{{i + 1}}.</strong> {{todo.title}}
+    </span>
+    <sub>{{todo.date | date:"MM/dd/yy"}}</sub>
+
+
+
+    <button class="remove"><img src="../../assets/img/icon-delete.png" alt="delete task"></button>
   </li>
 </ul>
