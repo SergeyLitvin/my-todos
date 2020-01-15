@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 
 export interface Todo {
-  id: number,
-  title: string,
-  completed: boolean,
-  date?: any
+  id: number;
+  title: string;
+  completed: boolean;
+  date?: any;
 }
 
 @Component({
@@ -34,5 +34,10 @@ export class AppComponent {
       completed: false,
       date: new Date()
     }
-  ]
+  ];
+
+  onToggle(id: number) {
+    const idx = this.todos.findIndex(t => t.id === id);
+    this.todos[idx].completed = !this.todos[idx].completed;
+  }
 }

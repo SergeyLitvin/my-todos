@@ -1,10 +1,10 @@
 <ul>
   <li *ngFor="let todo of todos; let i = index">
     <span [class.done]="todo.completed">
-      <input type="checkbox" [checked]="todo.completed">
+      <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
       <strong>{{i + 1}}.</strong> {{todo.title}}
     </span>
-    <sub>{{todo.date | date:"MM/dd/yy"}}</sub>
+    <sub>{{todo.date | date:"dd/MM/yy"}}</sub>
 
 
 

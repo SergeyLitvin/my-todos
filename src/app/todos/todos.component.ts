@@ -1,5 +1,5 @@
-import {Component, Input, OnInit} from '@angular/core';
-import {Todo} from "../app.component";
+import {Component, Input, OnInit, Output, EventEmitter} from '@angular/core';
+import {Todo} from '../app.component';
 
 @Component({
   selector: 'app-todos',
@@ -9,10 +9,16 @@ import {Todo} from "../app.component";
 export class TodosComponent implements OnInit {
 
   @Input() todos: Todo[] = [];
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onToggle = new EventEmitter<number>();
 
   constructor() { }
 
   ngOnInit() {
+  }
+
+  onChange(id: number) {
+    this.onToggle.emit(id);
   }
 
 }
