@@ -1,20 +1,24 @@
-<ul *ngIf="todosService.todos.length; else noTodos">
-  <li *ngFor="let todo of todosService.todos; let i = index">
-    <span [class.done]="todo.completed">
-      <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
-      <strong>{{i + 1}}.</strong> {{todo.title}}
-    </span>
-    <sub>{{todo.date | date:"dd/MM/yy"}}</sub>
+<div *ngIf="!loading">
+  <ul *ngIf="todosService.todos.length; else noTodos">
+    <li *ngFor="let todo of todosService.todos; let i = index">
+      <span [class.done]="todo.completed">
+        <input type="checkbox" [checked]="todo.completed" (change)="onChange(todo.id)">
+        <strong>{{i + 1}}.</strong> {{todo.title}}
+      </span>
+      <sub>{{todo.date | date:"dd/MM/yy"}}</sub>
 
-    <button class="remove" (click)="removeTodo(todo.id)">
-      <img src="../../assets/img/icon-delete.png" alt="delete task">
-    </button>
-  </li>
-</ul>
+      <button class="remove" (click)="removeTodo(todo.id)">
+        <img src="../../assets/img/icon-delete.png" alt="delete task">
+      </button>
+    </li>
+  </ul>
 
-<ng-template #noTodos>
-  <div class="info">
-    <h3>Нет запланированных задач</h3>
-    <p>Добавляйте задачи и приступайте к их выполнению!</p>
-  </div>
-</ng-template>
+  <ng-template #noTodos>
+    <div class="info">
+      <h3>Нет запланированных задач</h3>
+      <p>Добавляйте задачи и приступайте к их выполнению!</p>
+    </div>
+  </ng-template>
+</div>
+
+<p *ngIf="loading">Loading todos...</p>

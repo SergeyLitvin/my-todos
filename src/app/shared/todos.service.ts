@@ -1,4 +1,7 @@
 import {Injectable} from '@angular/core';
+import {HttpClient} from '@angular/common/http';
+import {Observable} from 'rxjs';
+import {delay, tap} from 'rxjs/operators';
 
 export interface Todo {
   id: number;
@@ -10,6 +13,14 @@ export interface Todo {
 @Injectable({providedIn: 'root'})
 export class TodosService {
   public todos: Todo[] = [];
+
+  constructor(private http: HttpClient) {}
+
+  fetchTodos(): Observable<Todo[]> {
+    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=10')
+      .pipe(delay(500))
+      .pipe(tap(todos => this.todos = todos));
+  }
 
   onToggle(id: number) {
     const idx = this.todos.findIndex(t => t.id === id);
