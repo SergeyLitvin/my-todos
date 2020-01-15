@@ -9,26 +9,7 @@ export interface Todo {
 
 @Injectable({providedIn: 'root'})
 export class TodosService {
-  public todos: Todo[] = [
-    {
-      id: 1,
-      title: 'Drink coffee',
-      completed: true,
-      date: new Date()
-    },
-    {
-      id: 2,
-      title: 'Create best todo app',
-      completed: false,
-      date: new Date()
-    },
-    {
-      id: 3,
-      title: 'Test best todo app',
-      completed: false,
-      date: new Date()
-    }
-  ];
+  public todos: Todo[] = [];
 
   onToggle(id: number) {
     const idx = this.todos.findIndex(t => t.id === id);
