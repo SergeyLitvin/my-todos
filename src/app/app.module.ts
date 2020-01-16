@@ -5,12 +5,14 @@ import { TodosComponent } from './todos/todos.component';
 import { HttpClientModule } from '@angular/common/http';
 import { TodosFormComponent } from './todos-form/todos-form.component';
 import { FormsModule } from '@angular/forms';
+import {TodosFilterPipe} from './shared/todos-filter.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     TodosComponent,
-    TodosFormComponent
+    TodosFormComponent,
+    TodosFilterPipe
   ],
   imports: [
     BrowserModule,
