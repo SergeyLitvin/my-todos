@@ -10,6 +10,7 @@ import { delay } from 'rxjs/operators';
 export class TodosComponent implements OnInit {
 
   public loading = false;
+  public searchString = '';
 
   constructor(public todosService: TodosService) { }
 
