@@ -1,7 +1,7 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
 import {Observable} from 'rxjs';
-import {delay, tap} from 'rxjs/operators';
+import {tap} from 'rxjs/operators';
 
 export interface Todo {
   id: number;
@@ -16,11 +16,10 @@ export class TodosService {
 
   constructor(private http: HttpClient) {}
 
-  fetchTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=3')
-      .pipe(delay(500))
-      .pipe(tap(todos => this.todos = todos));
-  }
+  // fetchTodos(): Observable<Todo[]> {
+  //   return this.http.get<Todo[]>('https://jsonplaceholder.typicode.com/todos?_limit=3')
+  //     .pipe(tap(todos => this.todos = todos));
+  // }
 
   onToggle(id: number) {
     const idx = this.todos.findIndex(t => t.id === id);
@@ -29,5 +28,9 @@ export class TodosService {
 
   removeTodo(id: number) {
     this.todos = this.todos.filter(t => t.id !== id);
+  }
+
+  addTodo(todo: Todo) {
+    this.todos.push(todo);
   }
 }

@@ -1,0 +1,13 @@
+.todo-form {
+  width: 100%;
+  display: flex;
+
+  input[type="text"] {
+    flex-basis: 80%;
+    padding: 8px;
+  }
+
+  button {
+    flex-basis: 20%;
+  }
+}
